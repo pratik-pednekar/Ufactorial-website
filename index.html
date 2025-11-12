@@ -1,9 +1,194 @@
-<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="robots" content="noindex">
-<title>Ufactorial — You, compounded.</title>
-<style>body{margin:0;min-height:100vh;display:grid;place-items:center;background:#0b0b0c;color:#f0f2f5;font:16px/1.6 system-ui}main{max-width:720px;padding:6rem 2rem;text-align:center}h1{margin:.5rem 0}</style>
-<main>
-  <h1>Ufactorial — You, compounded.</h1>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ufactorial — You, compounded.</title>
+  <meta name="description" content="Ufactorial builds personalized capability engines. Hridai is a trusted, proactive AI life manager — the heart of your day." />
+  <meta name="robots" content="index,follow">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='%23000000' d='M8 36c0-13 10-20 24-20s24 7 24 20c0 10-7 17-17 17h-7l-6 7-2-7C16 53 8 46 8 36Z'/%3E%3C/svg%3E">
+  <style>
+    :root{
+      --bg:#0b0c10; --fg:#f5f7fb; --muted:#b7c0d1; --brand:#8aa4ff; --brand-2:#b58cff;
+      --card:#0f1117; --line:#1a1f2a; --ok:#70ffa7;
+    }
+    *{box-sizing:border-box} html,body{height:100%}
+    body{margin:0;font:16px/1.6 ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Inter,Helvetica,Arial;
+      color:var(--fg);background:radial-gradient(1200px 600px at 20% -10%,rgba(138,164,255,.25),transparent 60%),
+                 radial-gradient(1000px 600px at 90% 10%,rgba(181,140,255,.18),transparent 60%),
+                 radial-gradient(800px 500px at 50% 120%,rgba(112,255,167,.08),transparent 60%),
+                 var(--bg);}
+    a{color:var(--brand);text-decoration:none}
+    .container{max-width:1120px;margin:0 auto;padding:0 20px}
+    header{position:sticky;top:0;backdrop-filter:saturate(120%) blur(6px);background:rgba(11,12,16,.6);border-bottom:1px solid var(--line);z-index:10}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .logo{display:flex;align-items:center;gap:10px}
+    .tag{display:inline-block;padding:4px 10px;border:1px solid var(--line);border-radius:999px;color:var(--muted);font-size:12px}
+    .btn{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(90deg,var(--brand),var(--brand-2));
+         color:#101113;border:none;border-radius:10px;padding:12px 16px;font-weight:600;cursor:pointer}
+    .btn.secondary{background:none;border:1px solid var(--line);color:var(--fg)}
+    .hero{padding:72px 0 48px}
+    .h1{font-size:44px;line-height:1.1;margin:0}
+    .sub{color:var(--muted);max-width:720px}
+    .grid{display:grid;gap:18px}
+    .grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+    @media (max-width:880px){.grid-3,.grid-2{grid-template-columns:1fr}.h1{font-size:36px}}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px}
+    .kicker{color:var(--muted);font-size:12px;letter-spacing:.12em;text-transform:uppercase}
+    section{padding:44px 0}
+    footer{padding:36px 0;border-top:1px solid var(--line);color:var(--muted)}
+    .founder{display:grid;grid-template-columns:220px 1fr;gap:22px;align-items:start}
+    @media (max-width:720px){.founder{grid-template-columns:1fr}}
+    .founder img{width:100%;border-radius:14px;border:1px solid var(--line)}
+    .hridai{display:flex;align-items:center;gap:10px}
+    .list{margin:0;padding-left:18px}
+    .pulse{position:absolute;inset:auto auto -120px -80px;width:240px;height:240px;background:radial-gradient(closest-side,rgba(112,255,167,.18),transparent 70%);filter:blur(12px);border-radius:50%;}
+    .center{display:flex;gap:12px;flex-wrap:wrap}
+    .tiny{font-size:12px;color:var(--muted)}
+    .ok{color:var(--ok)}
+    /* simple logos */
+    .logo svg{height:22px}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="logo">
+        <!-- Ufactorial wordmark (simple SVG) -->
+        <svg viewBox="0 0 220 24" aria-label="Ufactorial logo"><defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#8aa4ff"/><stop offset="1" stop-color="#b58cff"/></linearGradient></defs>
+          <text x="0" y="18" font-family="Inter, Segoe UI, Arial" font-weight="700" font-size="20" fill="url(#g)">Ufactorial</text>
+        </svg>
+        <span class="tag">You, compounded.</span>
+      </div>
+      <div class="center">
+        <a href="#features" class="tiny">Features</a>
+        <a href="#why" class="tiny">Why we’re different</a>
+        <a href="#privacy" class="tiny">Privacy</a>
+        <a href="#founder" class="tiny">Founder</a>
+        <a href="#waitlist" class="btn">Join the waitlist</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div style="position:relative">
+        <div class="pulse"></div>
+        <div class="kicker">Introducing Hridai</div>
+        <h1 class="h1">The heart of your day.</h1>
+        <p class="sub">A trusted, proactive, and genuinely personal AI that understands you, remembers what matters, and moves life forward — built by <strong>Ufactorial</strong>, the company behind capability engines that compound your progress.</p>
+        <div class="center" style="margin-top:18px">
+          <a id="waitlist" class="btn" href="YOUR_GOOGLE_FORM_URL" target="_blank" rel="noopener">Join the waitlist</a>
+          <a class="btn secondary" href="mailto:hello@ufactorial.com">Contact</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="features">
+      <div class="grid grid-3">
+        <div class="card">
+          <div class="kicker">Understands you</div>
+          <h3>Personal by design</h3>
+          <p>Hridai learns your preferences, routines, and tone — privately. It remembers your <strong>network</strong>: who they are, your relationship, and the best way to reach them.</p>
+        </div>
+        <div class="card">
+          <div class="kicker">Grows with you</div>
+          <h3>Improves every day</h3>
+          <p>It adapts through conversation and outcomes — no risky re-training. The more you use it, the more effortless life feels.</p>
+        </div>
+        <div class="card">
+          <div class="kicker">Proactive</div>
+          <h3>Helpful at the right time</h3>
+          <p>Hridai suggests and executes the next step: draft a text, schedule a call, plan a weekend, or surface context you’d forgotten.</p>
+        </div>
+        <div class="card">
+          <div class="kicker">Journals & reflects</div>
+          <h3>Less noise, more life</h3>
+          <p>Voice journaling with instant summaries, topic tracking, mood trends, and recall by person, topic, or time.</p>
+        </div>
+        <div class="card">
+          <div class="kicker">Works across your life</div>
+          <h3>Tools you already use</h3>
+          <p>Calendar, contacts, messaging, to-dos, notes — connected via secure integrations so Hridai can act on your behalf.</p>
+        </div>
+        <div class="card">
+          <div class="kicker">Trusted</div>
+          <h3>Privacy you can feel</h3>
+          <p>Private-by-default memory, explicit consent for sharing, a clear audit trail, and a “forget this” button.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="how">
+      <div class="grid grid-3">
+        <div class="card"><div class="kicker">1</div><h3>Understand</h3><p>Converse naturally. Hridai maps preferences, people, and projects with your consent.</p></div>
+        <div class="card"><div class="kicker">2</div><h3>Retrieve</h3><p>Tri-layer memory blends relationships, semantic recall, and mood/recency to pull the right context.</p></div>
+        <div class="card"><div class="kicker">3</div><h3>Act</h3><p>Deterministic planning + secure tools to draft, schedule, notify, or summarize. You approve what matters.</p></div>
+      </div>
+    </section>
+
+    <section id="why">
+      <h3 class="kicker">Why we’re different</h3>
+      <div class="grid grid-2">
+        <div class="card"><h3>Attention gatekeeper</h3><p>Routes and summarizes notifications across apps so you only see what matters.</p></div>
+        <div class="card"><h3>Proactivity engine</h3><p>Learns which nudges help and when to stay quiet — reducing decision fatigue.</p></div>
+        <div class="card"><h3>Deterministic agent graph</h3><p>Reproducible plans with transparent context (no chaotic multi-agent chatter).</p></div>
+        <div class="card"><h3>Consent ledger & controls</h3><p>You decide what’s stored, for how long, and who can be contacted on your behalf.</p></div>
+      </div>
+    </section>
+
+    <section id="use">
+      <h3 class="kicker">Who it helps</h3>
+      <div class="grid grid-3">
+        <div class="card"><h3>Busy parents</h3><p>Routines and logistics handled; context for family and teachers.</p></div>
+        <div class="card"><h3>Elders</h3><p>A warm confidant with gentle check-ins and simplified communication.</p></div>
+        <div class="card"><h3>Students & pros</h3><p>Focus blocks, project recall, and smart prioritization that compounds progress.</p></div>
+      </div>
+    </section>
+
+    <section id="privacy">
+      <h3 class="kicker">Trust & privacy</h3>
+      <div class="card">
+        <p>Hridai is private by default. It explains why it prompts you, honors “quiet hours,” and supports export or “forget this” at any time. Your data exists to help <em>you</em> — not to train unrelated models.</p>
+      </div>
+    </section>
+
+    <section id="founder">
+      <div class="card founder">
+        <img src="images/founder.jpg" alt="Pratik Pednekar" />
+        <div>
+          <div class="hridai">
+            <!-- Simple HrdAI mark -->
+            <svg viewBox="0 0 120 24" aria-label="HrdAI mark"><defs><linearGradient id="h" x1="0" x2="1"><stop offset="0" stop-color="#8aa4ff"/><stop offset="1" stop-color="#70ffa7"/></linearGradient></defs>
+              <path d="M5 14c-4-4 0-10 6-10 3 0 5 2 5 4 0-2 2-4 5-4 6 0 10 6 6 10l-11 9z" fill="url(#h)"/>
+              <text x="36" y="18" font-family="Inter, Segoe UI, Arial" font-size="18" font-weight="700" fill="#fff">HrdAI</text>
+            </svg>
+            <h2 style="margin:0">About the Founder</h2>
+          </div>
+          <p><strong>Pratik Pednekar — Founder & CEO</strong></p>
+          <p>AI consultant and product strategist who has led enterprise Data & AI programs across life sciences and supply chains. Pratik blends systems thinking with hands-on delivery to ship assistants that actually protect human attention. Father of two and the original “customer zero,” he’s building Hridai to be the heart-smart companion he wants for his own family.</p>
+          <p><a href="https://www.linkedin.com/in/pratikpednekar/" target="_blank" rel="noopener">LinkedIn →</a></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container center" style="justify-content:space-between">
+      <div>
+        <!-- Ufactorial small mark -->
+        <svg viewBox="0 0 120 24" style="height:20px;vertical-align:middle"><defs><linearGradient id="g2" x1="0" x2="1"><stop offset="0" stop-color="#8aa4ff"/><stop offset="1" stop-color="#b58cff"/></linearGradient></defs>
+          <text x="0" y="18" font-family="Inter, Segoe UI, Arial" font-size="18" font-weight="700" fill="url(#g2)">Ufactorial</text>
+        </svg>
+        <div class="tiny">© <span id="y"></span> Ufactorial, Inc. • <a href="mailto:hello@ufactorial.com">hello@ufactorial.com</a></div>
+      </div>
+      <div class="tiny">You, compounded.</div>
+    </div>
+  </footer>
+  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+</body>
+</html>
   <p>Launching soon. Reach us at <a href="mailto:hello@ufactorial.com">hello@ufactorial.com</a></p>
 </main>
 
